@@ -1,354 +1,349 @@
-# ✈️ FairClaim - Automated Airline Compensation Agent
+# 🚀 FairClaim - Automated Airline Price Compensation Agent
 
-**The AI-powered system that handles airline price compensation automatically.** Upload your booking, we handle everything: policy analysis, price verification, eligibility checks, and email submission to the airline.
+**The AI system that continuously monitors flight prices and handles airline compensation automatically.**
 
-## 🎯 What FairClaim Does (Completely Automated)
+## 🎯 What FairClaim Does
 
-### 1. 📄 Document Upload & Extraction
-- Upload flight booking confirmation (PDF, image, email)
-- AI extracts passenger name, booking reference, airline, flight details, original price
-- Automatic document validation
+Upload your flight booking once. FairClaim handles EVERYTHING:
 
-### 2. 🔍 Triple-Check Price Verification
-- Scans airline's current pricing in real-time
-- Compares with your booking price
-- Verifies price drop occurred legitimately
-- Calculates exact compensation amount
+### ✈️ **Continuous Daily Monitoring (24/7)**
+- ✅ **Checks every 24 hours** for price drops
+- ✅ **Optional 12-hour intensive monitoring** for frequent checking
+- ✅ **Browser notifications** when price drop detected
+- ✅ **Full price history** tracking
+- ✅ **Automatic alerts** when drop meets threshold (5%+)
 
-### 3. ⚖️ Legal Policy Analysis
-- AI analyzes airline's refund & price adjustment policies
-- Checks EU261, DOT regulations (if applicable)
-- Verifies passenger eligibility
-- Identifies which airline policy applies
-- Generates legal justification for claim
+### 📊 **Complete Price Analysis**
+- Verify current airline price in real-time
+- Triple-check against multiple price sources
+- Calculate exact compensation amount
+- Track price history over time
+- Maintain proof of price drop
 
-### 4. ✉️ Automated Email Submission
-- **Sends email directly to airline's compensation department on your behalf**
-- Includes:
-  - Booking details
-  - Current/original price proof
-  - Legal justification based on airline policy
-  - Compensation amount calculation
-  - Your contact information for airline response
-- Maintains conversation thread for follow-ups
+### ⚖️ **Legal Policy Analysis**
+- AI reads airline's refund policy
+- Checks EU261 regulations (if applicable)
+- Verifies DOT requirements (US flights)
+- Confirms IATA standards
+- Generates legal justification
 
-### 5. 📊 Track & Monitor
-- Email sent confirmation with timestamp
-- Airline contact info stored
-- Status tracking (Pending → Airline Response → Resolved)
-- Automatic follow-up reminders
+### 📧 **Automated Email Submission**
+- Creates professional compensation email
+- Sends directly to airline customer service
+- Includes all proof & legal basis
+- Maintains submission record
+- Auto-follow-up reminders
 
 ---
 
-## 🚀 Deployment Options
+## 🔔 How Daily Monitoring Works
 
-### Option 1: Vercel (Recommended - Free & Easy)
+### **Step 1: Start Monitoring**
+```
+You upload booking
+↓
+FairClaim starts daily price checks
+```
+
+### **Step 2: Automatic Daily Checks**
+```
+Every 24 hours:
+- Check airline current price
+- Compare with your booking price
+- Calculate percentage drop
+- Store in local history
+```
+
+### **Step 3: Price Drop Detected**
+```
+If price drops >= 5%:
+- Send browser notification 🔔
+- Mark compensation as ready
+- Alert you immediately
+```
+
+### **Step 4: Auto-Submit (Optional)**
+```
+Choose to:
+- Auto-submit to airline (recommended)
+- Manual review before sending
+```
+
+### **Step 5: Track Response**
+```
+Monitor for airline reply:
+- Status: Pending → Responded
+- Compensation approved ✅
+- Follow-up if needed
+```
+
+---
+
+## 📱 Browser Notifications
+
+**FairClaim sends you alerts when:**
+- ✅ Price drop detected
+- ✅ Compensation claim submitted
+- ✅ Airline responds
+- ✅ Action needed (follow-up)
+
+**Enable notifications:**
+1. Allow notifications when FairClaim asks
+2. Receive alerts on desktop/mobile
+3. Click alert to review details
+
+---
+
+## 🚀 5-Step Workflow
+
+### **Step 1: 📄 Upload Document**
+- Upload booking confirmation
+- AI extracts flight details automatically
+- Flight data stored locally
+
+### **Step 2: ✅ Price Verification**
+- Real-time airline price check
+- Verify price drop occurred
+- Store current price & proof
+
+### **Step 3: ⚖️ Policy Analysis**
+- AI reads airline policy
+- Check legal regulations
+- Determine eligibility
+- Generate legal claim basis
+
+### **Step 4: ✉️ Email Review**
+- AI-generated professional email
+- Customized to your flight & price drop
+- Review before sending
+- Copy to clipboard if needed
+
+### **Step 5: 📤 Send to Airline**
+- Enter your contact info
+- System sends email on your behalf
+- Get confirmation & tracking
+- Monitor for airline response
+
+---
+
+## 💾 Data Storage (Private & Secure)
+
+**All data stored locally in browser:**
+- ✅ Flight booking details
+- ✅ Price monitoring history
+- ✅ Email submissions
+- ✅ Airline responses
+- ✅ Tracking information
+
+**Zero cloud storage - complete privacy!**
+
+---
+
+## 🛠️ Deployment
+
+### **Vercel (Recommended - FREE)**
 
 ```bash
-# Install Vercel CLI
 npm install -g vercel
-
-# Deploy
-vercel
-
-# Set environment variables on Vercel dashboard:
-# - VITE_GOOGLE_API_KEY
-# - VITE_SENDER_EMAIL
-# - VITE_SENDER_PASSWORD (Gmail App Password)
-
-# Production deployment
 vercel --prod
 ```
 
-**Your app:** `https://your-app.vercel.app`
+Add environment variables:
+- `VITE_GOOGLE_API_KEY` - https://ai.google.dev/
+- `VITE_SENDER_EMAIL` - Your Gmail
+- `VITE_SENDER_PASSWORD` - Gmail App Password
 
-### Option 2: Netlify (Free Tier)
+**Live URL:** `https://fairclaim-xxx.vercel.app`
+
+### **Netlify (Also FREE)**
 
 ```bash
-# Install Netlify CLI
 npm install -g netlify-cli
-
-# Build
 npm run build
-
-# Deploy
 netlify deploy --prod --dir=dist
-
-# Or connect GitHub repo for auto-deployment
 ```
 
-### Option 3: GitHub Pages (Static Only)
+### **Local Development**
 
 ```bash
-npm run build
-# Upload dist/ folder to gh-pages branch
-```
-
-### Option 4: Self-Hosted (Docker)
-
-```bash
-# Build production
-npm run build
-
-# Create Dockerfile
-# Deploy to your server (DigitalOcean, Heroku, etc.)
-```
-
----
-
-## 🔐 Security & Privacy
-
-### Email Sending Security
-- **Gmail App Passwords**: Use app-specific passwords (not your main password)
-- **No data stored**: Emails sent immediately, data cleared
-- **HTTPS only**: All communication encrypted
-- **User control**: You authorize every email sent
-
-### Getting Gmail App Password
-1. Enable 2-Step Verification on your Google Account
-2. Go to myaccount.google.com/apppasswords
-3. Create app password for "Mail" and "Windows/Mac/Linux"
-4. Use this 16-char password in `.env.local`
-
-### Policy Data
-- Real-time airline policy lookup
-- No personal data stored
-- Compliant with GDPR/CCPA
-
----
-
-## 📋 How It Works (Step by Step)
-
-### Step 1: Upload Document
-```
-You upload booking confirmation
-↓
-AI extracts flight details automatically
-↓
-System stores temporarily in browser
-```
-
-### Step 2: Fetch Current Price
-```
-System searches airline website for current price
-↓
-Third-party price API verifies the drop
-↓
-Calculates compensation amount
-```
-
-### Step 3: Analyze Policies
-```
-AI fetches airline's cancellation/price adjustment policy
-↓
-Analyzes eligibility (EU261, DOT, IATA, airline's own policy)
-↓
-Generates legal claim basis
-```
-
-### Step 4: Generate & Send Email
-```
-AI writes professional compensation request email
-↓
-Includes all proof, policy references, calculations
-↓
-Sends to airline's customer service email on your behalf
-↓
-Stores proof of submission
-```
-
-### Step 5: Track Response
-```
-System monitors for airline response
-↓
-Notifies you of updates
-↓
-Auto-suggest follow-ups if needed
-```
-
----
-
-## 🛠️ Technology Stack
-
-| Component | Tech | Purpose |
-|-----------|------|----------|
-| **Frontend** | React 18 + Vite | UI & user interactions |
-| **AI Engine** | Google Gemini API | Policy analysis, email generation, data extraction |
-| **State** | Zustand | Global state management |
-| **HTTP** | Axios | API calls for price verification |
-| **Styling** | CSS3 + Dark Mode | Beautiful, responsive design |
-| **Deployment** | Vercel/Netlify | Production hosting |
-| **Email** | Gmail API / SMTP | Direct airline contact |
-
----
-
-## 📦 Installation & Setup
-
-### Local Development
-
-```bash
-# Clone repo
 git clone https://github.com/districtawardtravel-cmd/FairClaim.git
 cd FairClaim
-
-# Install dependencies
 npm install
-
-# Setup environment
 cp .env.example .env.local
-
-# Edit .env.local with your keys:
-# 1. Google API Key: https://ai.google.dev/
-# 2. Gmail App Password (see Security section above)
-
-# Run development server
+# Add your API keys
 npm run dev
-
-# Open http://localhost:5173
-```
-
-### Production Deployment
-
-#### With Vercel (Recommended)
-```bash
-# Connect GitHub repo to Vercel
-vercel link
-
-# Add environment variables in Vercel Dashboard
-# Project Settings → Environment Variables
-
-# Deploy
-vercel deploy --prod
-```
-
-#### With Netlify
-```bash
-npm run build
-netlify deploy --prod --dir=dist
-```
-
-#### With Docker (Self-Hosted)
-```bash
-docker build -t fairclaim .
-docker run -p 3000:3000 \
-  -e VITE_GOOGLE_API_KEY=xxx \
-  -e VITE_SENDER_EMAIL=xxx \
-  -e VITE_SENDER_PASSWORD=xxx \
-  fairclaim
 ```
 
 ---
 
-## ✨ Features Breakdown
+## 📊 Price Monitoring Features
 
-### Intelligent Document Processing
-- ✅ PDF, image, email format support
-- ✅ OCR for scanned documents (via Gemini)
-- ✅ Automatic field extraction
-- ✅ Validation & error detection
+### **Continuous Checking**
+- Daily checks (24-hour intervals)
+- Optional intensive monitoring (12-hour intervals)
+- Real-time price verification
+- Automatic history tracking
 
-### Real-Time Price Verification
-- ✅ Airline website scraping (where allowed)
-- ✅ Third-party price API integration
-- ✅ Proof of current price
-- ✅ Historical price tracking
+### **Price Drop Detection**
+- Automatic alerts when drop detected
+- Percentage & amount displayed
+- Proof stored for airline claim
+- Legal basis generated automatically
 
-### Policy Intelligence
-- ✅ Airline-specific policy lookup
-- ✅ Regulatory compliance check (EU261, DOT)
-- ✅ Eligibility assessment
-- ✅ Legal claim generation
+### **Full History**
+- All price checks recorded
+- Timestamps for each check
+- Price trend visualization
+- Export history if needed
 
-### Automated Email System
-- ✅ Find airline customer service email
-- ✅ Professional email composition
-- ✅ Multi-language support
-- ✅ Direct SMTP/Gmail sending
-- ✅ Delivery confirmation
+### **Smart Notifications**
+- Browser desktop notifications 🔔
+- Custom alert thresholds (5%+ default)
+- Silent mode for existing subscribers
+- Multiple alert channels
 
-### Tracking & Follow-Up
-- ✅ Submission history
-- ✅ Response monitoring
-- ✅ Reminder system
-- ✅ Status updates
+---
+
+## 🔐 Gmail Setup (For Auto-Email Sending)
+
+1. **Enable 2-Step Verification**
+   - Go to myaccount.google.com
+   - Security → 2-Step Verification → Enable
+
+2. **Create App Password**
+   - Go to myaccount.google.com/apppasswords
+   - Select "Mail" and "Windows/Mac/Linux"
+   - Copy the 16-character password
+
+3. **Add to Environment**
+   ```
+   VITE_SENDER_EMAIL=your-email@gmail.com
+   VITE_SENDER_PASSWORD=xxxx xxxx xxxx xxxx
+   ```
+
+✅ **Not your actual password** - safer app password!
+
+---
+
+## 📈 Monitoring Data Example
+
+```json
+{
+  "AA_123_ABC456": {
+    "booking": {
+      "airline": "American Airlines",
+      "flightNumber": "AA123",
+      "bookingReference": "ABC456",
+      "departureDate": "2026-06-15",
+      "originalPrice": 500
+    },
+    "checks": [
+      {
+        "timestamp": "2026-04-27T10:00:00Z",
+        "currentPrice": 485,
+        "priceDropPercentage": 3
+      },
+      {
+        "timestamp": "2026-04-28T10:00:00Z",
+        "currentPrice": 420,
+        "priceDropPercentage": 16
+      }
+    ],
+    "priceDropDetected": true,
+    "lastDropNotification": {
+      "timestamp": "2026-04-28T10:00:00Z",
+      "message": "Price dropped 16% from $500 to $420"
+    }
+  }
+}
+```
 
 ---
 
 ## 🎯 Supported Airlines
 
-Airlines with auto-policy lookup (constantly updated):
-- ✈️ All EU airlines (IATA member)
-- ✈️ US carriers (DOT regulated)
-- ✈️ Major international airlines
-- ✈️ Budget carriers (Ryanair, EasyJet, etc.)
+**All major airlines supported including:**
+- American Airlines
+- Delta Air Lines
+- United Airlines
+- Southwest Airlines
+- Lufthansa
+- Air France
+- British Airways
+- KLM
+- Ryanair
+- EasyJet
+- And 100+ more...
 
-*System automatically detects airline and fetches applicable policies*
-
----
-
-## 📊 Status & Roadmap
-
-- [x] Document upload & AI extraction
-- [x] Price verification system
-- [x] Policy analysis engine
-- [x] Email generation & sending
-- [x] Dark mode UI
-- [x] Responsive design
-- [ ] SMS notifications
-- [ ] Multi-language support (beta)
-- [ ] WhatsApp integration
-- [ ] Payment tracking (if airline owes refund)
+*Auto-detects airline and applies correct policy*
 
 ---
 
-## 🔗 API References
+## ⚡ Tech Stack
 
-### Google Gemini API
-- Documentation: https://ai.google.dev/
-- Free tier: 60 requests/minute
-- Perfect for policy analysis & email generation
-
-### Gmail API (Optional - for native integration)
-- Documentation: https://developers.google.com/gmail/api
-- Requires OAuth2 setup
-- Alternative: Use App Password with SMTP
-
-### Airline Policy APIs
-- Sabre: https://developer.sabre.com/
-- Amadeus: https://developers.amadeus.com/
-- Custom scraping for specific airlines
+| Component | Technology | Purpose |
+|-----------|------------|----------|
+| **Frontend** | React 18 + Vite | UI & monitoring dashboard |
+| **State** | Zustand | Local state management |
+| **Storage** | Browser LocalStorage | Price history & booking data |
+| **AI** | Google Gemini API | Policy analysis, email generation |
+| **Monitoring** | Service Workers | Background price checks |
+| **Notifications** | Web Notifications API | Real-time alerts |
+| **Hosting** | Vercel/Netlify | Production deployment |
 
 ---
 
-## 🤝 Contributing
+## 📋 Workflow Summary
 
-Want to add:
-- ✅ New airline support?
-- ✅ New regulations (Australia, Canada, etc.)?
-- ✅ Multi-language email templates?
-
-Pull requests welcome!
+```
+┌─────────────────────────────────────┐
+│  1️⃣  Upload Booking Document        │
+│  ↓                                   │
+│  2️⃣  Daily Price Monitoring Starts  │ ← 24/7 checks
+│  ↓                                   │
+│  3️⃣  Price Drop Detected 🔔         │ ← Alert sent
+│  ↓                                   │
+│  4️⃣  Policy Analysis (Auto)         │ ← Legal review
+│  ↓                                   │
+│  5️⃣  Email Sent to Airline          │ ← On your behalf
+│  ↓                                   │
+│  ✅ Compensation Request Submitted   │
+│  ↓                                   │
+│  💰 Await Airline Response           │ ← 14 days typical
+└─────────────────────────────────────┘
+```
 
 ---
 
-## ⚖️ Legal Disclaimer
+## 🔒 Privacy & Security
+
+- ✅ **Local-first** - Data stays in your browser
+- ✅ **No cloud database** - No external servers
+- ✅ **No tracking** - No analytics or telemetry
+- ✅ **App Passwords** - Not your real Google password
+- ✅ **HTTPS only** - Encrypted communication
+- ✅ **GDPR compliant** - User data protection
+
+---
+
+## 📧 Support & Issues
+
+- **GitHub Issues:** https://github.com/districtawardtravel-cmd/FairClaim/issues
+- **Documentation:** https://github.com/districtawardtravel-cmd/FairClaim/wiki
+- **Contact:** support@fairclaim.ai
+
+---
+
+## 📄 Legal Disclaimer
 
 FairClaim is an automated assistant for submitting legitimate compensation claims based on:
-- EU Regulation 261/2004 (EU passengers)
+- EU Regulation 261/2004
 - US DOT regulations
-- Airline's own refund/price adjustment policies
+- Airline's own policies
 - IATA standards
 
-**Not a law firm.** Results depend on airline policies & individual circumstances.
+**Results depend on airline policies & circumstances.**
 
 ---
 
-## 📞 Support
-
-- Issues: https://github.com/districtawardtravel-cmd/FairClaim/issues
-- Email: support@fairclaim.ai
-- Docs: https://github.com/districtawardtravel-cmd/FairClaim/wiki
-
----
-
-**🚀 Get Your Compensation Automatically - FairClaim Does the Work**
+**🎯 FairClaim: Upload Once, We Monitor Daily, Compensation Automatic** ✈️💰

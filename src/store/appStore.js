@@ -15,6 +15,16 @@ export const useAppStore = create(
       setCurrentPrice: (price) => set({ currentPrice: price }),
       setPriceVerified: (verified) => set({ priceVerified: verified }),
       
+      // Price Monitoring
+      monitoringActive: false,
+      priceDropDetected: false,
+      monitoringHistory: [],
+      setMonitoringActive: (active) => set({ monitoringActive: active }),
+      setPriceDropDetected: (detected) => set({ priceDropDetected: detected }),
+      addMonitoringCheck: (check) => set((state) => ({
+        monitoringHistory: [...state.monitoringHistory, check],
+      })),
+      
       // Policy Analysis
       airlinePolicy: null,
       eligibilityStatus: null,
@@ -50,6 +60,9 @@ export const useAppStore = create(
         originalPrice: null,
         currentPrice: null,
         priceVerified: false,
+        monitoringActive: false,
+        priceDropDetected: false,
+        monitoringHistory: [],
         airlinePolicy: null,
         eligibilityStatus: null,
         legalBasis: null,
@@ -70,6 +83,8 @@ export const useAppStore = create(
         originalPrice: state.originalPrice,
         currentPrice: state.currentPrice,
         priceVerified: state.priceVerified,
+        monitoringActive: state.monitoringActive,
+        priceDropDetected: state.priceDropDetected,
         airlinePolicy: state.airlinePolicy,
         eligibilityStatus: state.eligibilityStatus,
         legalBasis: state.legalBasis,
