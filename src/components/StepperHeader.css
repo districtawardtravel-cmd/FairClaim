@@ -1,0 +1,125 @@
+.stepper-container {
+  width: 100%;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.03));
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  border: 1px solid var(--dark-border);
+}
+
+.stepper-track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.stepper-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.step-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid var(--dark-border);
+  background-color: var(--dark-surface);
+}
+
+.stepper-step.active .step-badge {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, var(--primary), rgba(99, 102, 241, 0.2));
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  transform: scale(1.1);
+}
+
+.stepper-step.completed .step-badge {
+  border-color: var(--success);
+  background: linear-gradient(135deg, var(--success), rgba(16, 185, 129, 0.2));
+  color: var(--success);
+}
+
+.stepper-step.pending .step-badge {
+  opacity: 0.5;
+}
+
+.step-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.stepper-step.active .step-title {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.stepper-step.completed .step-title {
+  color: var(--success);
+}
+
+.stepper-line {
+  flex: 1;
+  height: 2px;
+  background-color: var(--dark-border);
+  margin: 0 0.5rem;
+  position: relative;
+  top: -30px;
+  transition: background-color 0.3s ease;
+}
+
+.stepper-line.completed {
+  background: linear-gradient(90deg, var(--success), var(--success));
+}
+
+@media (max-width: 768px) {
+  .stepper-container {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .step-badge {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .step-title {
+    font-size: 0.75rem;
+  }
+  
+  .stepper-line {
+    top: -25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepper-track {
+    max-width: 100%;
+  }
+  
+  .step-badge {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .stepper-line {
+    margin: 0 0.25rem;
+  }
+}
