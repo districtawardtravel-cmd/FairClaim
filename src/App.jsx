@@ -1,50 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
+import { useAppStore } from './store/appStore';
 import StepperHeader from './components/StepperHeader';
-import Step1Upload from './components/steps/Step1Upload';
-import Step2Extract from './components/steps/Step2Extract';
-import Step3Compare from './components/steps/Step3Compare';
-import Step4Generate from './components/steps/Step4Generate';
-import { useLocalStorage } from './hooks/useLocalStorage';
+import Step1Document from './components/steps/Step1Document';
+import Step2Verification from './components/steps/Step2Verification';
+import Step3PolicyAnalysis from './components/steps/Step3PolicyAnalysis';
+import Step4EmailReview from './components/steps/Step4EmailReview';
+import Step5Submission from './components/steps/Step5Submission';
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [state, setState] = useLocalStorage('flightCompensationState', {
-    file: null,
-    fileContent: null,
-    flightData: null,
-    currentPrice: null,
-    emailText: null,
-    extractionError: null,
-    generationError: null,
-  });
-
-  const handleNext = () => {
-    if (currentStep < 4) {
-      setCurrentStep(currentStep + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
-  const handleReset = () => {
-    setState({
-      file: null,
-      fileContent: null,
-      flightData: null,
-      currentPrice: null,
-      emailText: null,
-      extractionError: null,
-      generationError: null,
-    });
-    setCurrentStep(1);
-  };
+  const currentStep = useAppStore((state) => state.currentStep);
+  const setCurrentStep = useAppStore((state) => state.setCurrentStep);
 
   return (
     <div className="app-container">
@@ -52,46 +18,19 @@ function App() {
       
       <div className="content-wrapper">
         <header className="app-header">
-          <div className="header-content">
-            <h1>✈️ Flight Compensation Calculator</h1>
-            <p>Claim your rightful compensation in 4 easy steps</p>
-          </div>
+          <h1>✈️ FairClaim</h1>
+          <p>Automated Airline Price Compensation</p>
+          <span className="tagline">We handle everything - upload, verify, analyze, and claim</span>
         </header>
 
-        <StepperHeader currentStep={currentStep} totalSteps={4} />
+        <StepperHeader currentStep={currentStep} totalSteps={5} />
 
         <main className="steps-container">
-          {currentStep === 1 && (
-            <Step1Upload
-              state={state}
-              setState={setState}
-              onNext={handleNext}
-            />
-          )}
-          {currentStep === 2 && (
-            <Step2Extract
-              state={state}
-              setState={setState}
-              onNext={handleNext}
-              onPrev={handlePrev}
-            />
-          )}
-          {currentStep === 3 && (
-            <Step3Compare
-              state={state}
-              setState={setState}
-              onNext={handleNext}
-              onPrev={handlePrev}
-            />
-          )}
-          {currentStep === 4 && (
-            <Step4Generate
-              state={state}
-              setState={setState}
-              onReset={handleReset}
-              onPrev={handlePrev}
-            />
-          )}
+          {currentStep === 1 && <Step1Document />}
+          {currentStep === 2 && <Step2Verification />}
+          {currentStep === 3 && <Step3PolicyAnalysis />}
+          {currentStep === 4 && <Step4EmailReview />}
+          {currentStep === 5 && <Step5Submission />}
         </main>
       </div>
     </div>

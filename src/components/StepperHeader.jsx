@@ -1,47 +1,40 @@
 import React from 'react';
 import './StepperHeader.css';
-import { Check } from 'lucide-react';
+import { Check, Upload, Check as CheckIcon, FileText, Lock, Send, CheckCircle } from 'lucide-react';
 
 const StepperHeader = ({ currentStep, totalSteps }) => {
   const steps = [
-    { num: 1, title: 'Upload', icon: '📄' },
-    { num: 2, title: 'Extract', icon: '🔍' },
-    { num: 3, title: 'Compare', icon: '⚖️' },
-    { num: 4, title: 'Generate', icon: '✉️' },
+    { num: 1, title: 'Upload', icon: Upload, description: 'Document' },
+    { num: 2, title: 'Verify', icon: CheckIcon, description: 'Price' },
+    { num: 3, title: 'Analyze', icon: Lock, description: 'Policies' },
+    { num: 4, title: 'Review', icon: FileText, description: 'Email' },
+    { num: 5, title: 'Send', icon: Send, description: 'Claim' },
   ];
 
   return (
     <div className="stepper-container">
       <div className="stepper-track">
-        {steps.map((step, index) => (
-          <React.Fragment key={step.num}>
-            <div
-              className={`stepper-step ${
-                step.num < currentStep
-                  ? 'completed'
-                  : step.num === currentStep
-                  ? 'active'
-                  : 'pending'
-              }`}
-            >
-              <div className="step-badge">
-                {step.num < currentStep ? (
-                  <Check size={20} />
-                ) : (
-                  <span>{step.icon}</span>
-                )}
+        {steps.map((step, index) => {
+          const Icon = step.icon;
+          const isCompleted = step.num < currentStep;
+          const isActive = step.num === currentStep;
+          const isPending = step.num > currentStep;
+
+          return (
+            <React.Fragment key={step.num}>
+              <div className={`stepper-step ${isCompleted ? 'completed' : isActive ? 'active' : 'pending'}`}>
+                <div className="step-badge">
+                  {isCompleted ? <Check size={20} /> : <Icon size={20} />}
+                </div>
+                <span className="step-title">{step.title}</span>
+                <span className="step-description">{step.description}</span>
               </div>
-              <span className="step-title">{step.title}</span>
-            </div>
-            {index < steps.length - 1 && (
-              <div
-                className={`stepper-line ${
-                  step.num < currentStep ? 'completed' : ''
-                }`}
-              ></div>
-            )}
-          </React.Fragment>
-        ))}
+              {index < steps.length - 1 && (
+                <div className={`stepper-line ${isCompleted ? 'completed' : ''}`}></div>
+              )}
+            </React.Fragment>
+          );
+        })}
       </div>
     </div>
   );
